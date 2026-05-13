@@ -6,83 +6,113 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: transparent;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 13px;
-    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
     padding: 0;
   }
   
   .exp-widget {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
-    padding: 16px 20px;
+    background: linear-gradient(180deg, #1a3a52 0%, #0f2438 100%);
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    padding: 0;
     margin: 0;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-    border-left: 4px solid #764ba2;
-    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(212, 175, 55, 0.1);
+    color: #ffffff;
+    font-weight: bold;
   }
   
-  .exp-title {
-    font-weight: 700;
-    font-size: 14px;
+  .exp-header {
+    background: linear-gradient(90deg, #0f1f2e 0%, #1a3a52 100%);
+    border-bottom: 2px solid #d4af37;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: #d4af37;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-    opacity: 0.95;
+  }
+  
+  .exp-header::before,
+  .exp-header::after {
+    content: "◆";
+    margin: 0 8px;
   }
   
   .exp-content {
-    line-height: 1.6;
+    display: flex;
+    padding: 16px;
+    gap: 16px;
   }
   
-  .exp-week {
-    font-size: 18px;
-    font-weight: 700;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 8px 12px;
-    border-radius: 6px;
-    display: inline-block;
-    margin: 8px 0;
+  .exp-column {
+    flex: 1;
+    text-align: center;
+    border-right: 2px solid rgba(212, 175, 55, 0.3);
+    padding-right: 16px;
   }
   
-  .exp-limit {
-    font-size: 16px;
-    font-weight: 700;
+  .exp-column:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+  
+  .exp-label {
+    font-size: 11px;
+    color: #a0c0d8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  
+  .exp-value {
+    font-size: 36px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  
+  .exp-value.gold {
     color: #ffd700;
-    margin: 8px 0;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
   }
   
-  .exp-update {
+  .exp-unit {
     font-size: 12px;
-    opacity: 0.9;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffd700;
+    letter-spacing: 1px;
   }
   
-  .exp-icon {
-    display: inline-block;
-    margin-right: 6px;
-    font-size: 16px;
+  .exp-footer {
+    background: linear-gradient(90deg, #0f1f2e 0%, #1a3a52 100%);
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 11px;
+    color: #a0c0d8;
+  }
+  
+  .exp-footer::before {
+    content: "📅 ";
+    margin-right: 4px;
   }
 </style>
 </head>
 <body>
 <div class="exp-widget">
-  <div class="exp-title">
-    <span class="exp-icon">⚔️</span> RPG Global Experience
-  </div>
+  <div class="exp-header">Límite Global de EXP</div>
   <div class="exp-content">
-    <div class="exp-week">
-      <span class="exp-icon">📅</span>Semana <span id="semana"></span>
+    <div class="exp-column">
+      <div class="exp-label">Semana del RPG</div>
+      <div class="exp-value" id="semana">27</div>
     </div>
-    <div class="exp-limit">
-      <span class="exp-icon">✨</span>Límite global: <span id="limite"></span> EXP
-    </div>
-    <div class="exp-update">
-      <span class="exp-icon">🔄</span>Próxima actualización: <span id="fecha"></span>
+    <div class="exp-column">
+      <div class="exp-label">EXP Max. Acumulable</div>
+      <div class="exp-value gold"><span id="limite">13.500</span> <span class="exp-unit">EXP</span></div>
     </div>
   </div>
+  <div class="exp-footer">Próxima actualización: <span id="fecha">18/05/2026</span></div>
 </div>
 
 <script>
