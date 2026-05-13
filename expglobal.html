@@ -33,12 +33,6 @@
     text-transform: uppercase;
   }
   
-  .exp-header::before,
-  .exp-header::after {
-    content: "◆";
-    margin: 0 8px;
-  }
-  
   .exp-content {
     display: flex;
     padding: 16px;
@@ -78,12 +72,6 @@
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
   }
   
-  .exp-unit {
-    font-size: 12px;
-    color: #ffd700;
-    letter-spacing: 1px;
-  }
-  
   .exp-footer {
     background: linear-gradient(90deg, #0f1f2e 0%, #1a3a52 100%);
     border-top: 1px solid rgba(212, 175, 55, 0.3);
@@ -91,11 +79,6 @@
     text-align: center;
     font-size: 11px;
     color: #a0c0d8;
-  }
-  
-  .exp-footer::before {
-    content: "";
-    margin-right: 4px;
   }
 </style>
 </head>
@@ -109,9 +92,9 @@
     </div>
     <div class="exp-column">
       <div class="exp-label">Límite de experiencia global</div>
-      <div class="exp-value gold"><span id="limite"></span>
-      </div>
+      <div class="exp-value gold"><span id="limite"></span></div>
     </div>
+  </div>
   <div class="exp-footer">Próxima actualización: <span id="fecha"></span></div>
 </div>
 
