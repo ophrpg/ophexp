@@ -14,7 +14,6 @@
   .exp-widget {
     background: white;
     border: 2px solid #2c3e50;
-    border-radius: 8px;
     padding: 0;
     margin: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -57,9 +56,8 @@
     margin-bottom: 4px;
   }
   
-  .exp-value.gold {
-    color: #ffd700;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+  .exp-value.green {
+    color: #00aa00;
   }
   
   .exp-footer {
@@ -68,7 +66,7 @@
     padding: 8px 16px;
     text-align: center;
     font-size: 11px;
-    color: #999;
+    color: #000000;
   }
 </style>
 </head>
@@ -81,7 +79,7 @@
     </div>
     <div class="exp-column">
       <div class="exp-label">Límite de EXP global</div>
-      <div class="exp-value gold"><span id="limite"></span></div>
+      <div class="exp-value green"><span id="limite"></span></div>
     </div>
   </div>
   <div class="exp-footer">Próxima actualización: <span id="fecha"></span></div>
