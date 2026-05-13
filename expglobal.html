@@ -6,15 +6,85 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: transparent;
-    font-family: verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    color: #2c3e50;
+    padding: 0;
+  }
+  
+  .exp-widget {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 0;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    border-left: 4px solid #764ba2;
+    color: white;
+  }
+  
+  .exp-title {
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    opacity: 0.95;
+  }
+  
+  .exp-content {
+    line-height: 1.6;
+  }
+  
+  .exp-week {
+    font-size: 18px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 8px 0;
+  }
+  
+  .exp-limit {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffd700;
+    margin: 8px 0;
+  }
+  
+  .exp-update {
     font-size: 12px;
-    color: #000000;
-    padding: 2px 0;
+    opacity: 0.9;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .exp-icon {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 16px;
   }
 </style>
 </head>
 <body>
-<span id="out"></span>
+<div class="exp-widget">
+  <div class="exp-title">
+    <span class="exp-icon">⚔️</span> RPG Global Experience
+  </div>
+  <div class="exp-content">
+    <div class="exp-week">
+      <span class="exp-icon">📅</span>Semana <span id="semana"></span>
+    </div>
+    <div class="exp-limit">
+      <span class="exp-icon">✨</span>Límite global: <span id="limite"></span> EXP
+    </div>
+    <div class="exp-update">
+      <span class="exp-icon">🔄</span>Próxima actualización: <span id="fecha"></span>
+    </div>
+  </div>
+</div>
+
 <script>
   var limitexp = 500;
   var inicio = new Date(2025, 10, 10);
@@ -29,9 +99,10 @@
   var dd = proxLunes.getDate() < 10 ? '0' + proxLunes.getDate() : '' + proxLunes.getDate();
   var mm = (proxLunes.getMonth()+1) < 10 ? '0'+(proxLunes.getMonth()+1) : ''+(proxLunes.getMonth()+1);
   var fecha = dd + '/' + mm + '/' + proxLunes.getFullYear();
-  document.getElementById('out').innerHTML =
-    '<i>(Semana <b>' + semana + '</b> del RPG &mdash; <br>L&iacute;mite global actual: <b>' + limFmt + ' EXP</b>. ' +
-    <br>'Pr&oacute;xima actualizaci&oacute;n: ' + fecha + '.)</i>';
+  
+  document.getElementById('semana').innerHTML = semana;
+  document.getElementById('limite').innerHTML = limFmt;
+  document.getElementById('fecha').innerHTML = fecha;
 </script>
 </body>
 </html>
