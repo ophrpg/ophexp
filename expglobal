@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: transparent;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    padding: 0;
+  }
+  
+  .exp-widget {
+    background: white;
+    border: 2px solid #2c3e50;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #2c3e50;
+    font-weight: bold;
+  }
+  
+  .exp-content {
+    display: flex;
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .exp-column {
+    flex: 1;
+    text-align: center;
+    border-right: 2px solid #e0e0e0;
+    padding-right: 16px;
+  }
+  
+  .exp-column:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+  
+  .exp-label {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+  
+  .exp-value {
+    font-size: 36px;
+    font-weight: 900;
+    color: #2c3e50;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  
+  .exp-value.green {
+    color: #00aa00;
+  }
+  
+  .exp-footer {
+    background: #f5f5f5;
+    border-top: 1px solid #e0e0e0;
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 11px;
+    color: #000000;
+  }
+</style>
+</head>
+<body>
+<div class="exp-widget">
+  <div class="exp-content">
+    <div class="exp-column">
+      <div class="exp-label">Semana actual</div>
+      <div class="exp-value" id="semana"></div>
+    </div>
+    <div class="exp-column">
+      <div class="exp-label">Límite de EXP global</div>
+      <div class="exp-value green"><span id="limite"></span></div>
+    </div>
+  </div>
+  <div class="exp-footer">Próxima actualización: <span id="fecha"></span></div>
+</div>
+
+<script>
+  var limitexp = 500;
+  var inicio = new Date(2025, 10, 10);
+  var hoy = new Date();
+  var dia = hoy.getDay();
+  var lunes = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate() - (dia === 0 ? 6 : dia - 1));
+  var semana = Math.floor(Math.round((lunes - inicio) / 86400000) / 7) + 1;
+  if (semana < 1) semana = 1;
+  var limite = semana * limitexp;
+  var limFmt = limite.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  var proxLunes = new Date(lunes.getFullYear(), lunes.getMonth(), lunes.getDate() + 7);
+  var dd = proxLunes.getDate() < 10 ? '0' + proxLunes.getDate() : '' + proxLunes.getDate();
+  var mm = (proxLunes.getMonth()+1) < 10 ? '0'+(proxLunes.getMonth()+1) : ''+(proxLunes.getMonth()+1);
+  var fecha = dd + '/' + mm + '/' + proxLunes.getFullYear();
+  
+  document.getElementById('semana').innerHTML = semana;
+  document.getElementById('limite').innerHTML = limFmt;
+  document.getElementById('fecha').innerHTML = fecha;
+</script>
+</body>
+</html>
