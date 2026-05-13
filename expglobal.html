@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: transparent;
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+    color: #000000;
+    padding: 2px 0;
+  }
+</style>
+</head>
+<body>
+<span id="out"></span>
+<script>
+  var EXP_POR_SEMANA = 500;
+  var inicio = new Date(2025, 10, 10);
+  var hoy = new Date();
+  var dia = hoy.getDay();
+  var lunes = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate() - (dia === 0 ? 6 : dia - 1));
+  var semana = Math.floor(Math.round((lunes - inicio) / 86400000) / 7) + 1;
+  if (semana < 1) semana = 1;
+  var limite = semana * EXP_POR_SEMANA;
+  var limFmt = limite.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  var proxLunes = new Date(lunes.getFullYear(), lunes.getMonth(), lunes.getDate() + 7);
+  var dd = proxLunes.getDate() < 10 ? '0' + proxLunes.getDate() : '' + proxLunes.getDate();
+  var mm = (proxLunes.getMonth()+1) < 10 ? '0'+(proxLunes.getMonth()+1) : ''+(proxLunes.getMonth()+1);
+  var fecha = dd + '/' + mm + '/' + proxLunes.getFullYear();
+  document.getElementById('out').innerHTML =
+    '<i>(Semana <b>' + semana + '</b> del RPG &mdash; L&iacute;mite global actual: <b>' + limFmt + ' EXP</b>. ' +
+    'Pr&oacute;xima actualizaci&oacute;n: ' + fecha + '.)</i>';
+</script>
+</body>
+</html>
