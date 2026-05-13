@@ -12,25 +12,14 @@
   }
   
   .exp-widget {
-    background: linear-gradient(180deg, #1a3a52 0%, #0f2438 100%);
-    border: 2px solid #d4af37;
+    background: white;
+    border: 2px solid #2c3e50;
     border-radius: 8px;
     padding: 0;
     margin: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(212, 175, 55, 0.1);
-    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #2c3e50;
     font-weight: bold;
-  }
-  
-  .exp-header {
-    background: linear-gradient(90deg, #0f1f2e 0%, #1a3a52 100%);
-    border-bottom: 2px solid #d4af37;
-    padding: 10px 16px;
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    color: #d4af37;
-    text-transform: uppercase;
   }
   
   .exp-content {
@@ -42,7 +31,7 @@
   .exp-column {
     flex: 1;
     text-align: center;
-    border-right: 2px solid rgba(212, 175, 55, 0.3);
+    border-right: 2px solid #e0e0e0;
     padding-right: 16px;
   }
   
@@ -53,45 +42,45 @@
   
   .exp-label {
     font-size: 11px;
-    color: #a0c0d8;
+    color: #666;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 8px;
+    white-space: nowrap;
   }
   
   .exp-value {
     font-size: 36px;
     font-weight: 900;
-    color: #ffffff;
+    color: #2c3e50;
     line-height: 1;
     margin-bottom: 4px;
   }
   
   .exp-value.gold {
     color: #ffd700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
   }
   
   .exp-footer {
-    background: linear-gradient(90deg, #0f1f2e 0%, #1a3a52 100%);
-    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    background: #f5f5f5;
+    border-top: 1px solid #e0e0e0;
     padding: 8px 16px;
     text-align: center;
     font-size: 11px;
-    color: #a0c0d8;
+    color: #999;
   }
 </style>
 </head>
 <body>
 <div class="exp-widget">
-  <div class="exp-header">One Piece Habbo RPG</div>
   <div class="exp-content">
     <div class="exp-column">
       <div class="exp-label">Semana actual</div>
       <div class="exp-value" id="semana"></div>
     </div>
     <div class="exp-column">
-      <div class="exp-label">Límite de experiencia global</div>
+      <div class="exp-label">Límite de EXP global</div>
       <div class="exp-value gold"><span id="limite"></span></div>
     </div>
   </div>
